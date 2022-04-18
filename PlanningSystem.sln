@@ -5,15 +5,13 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A24E43EA-3A99-4758-9334-A711F074CC1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{E5AC94DF-0E2E-4AB7-B07C-A7414BD50F29}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.MongoDb", "Repository.MongoDb\Repository.MongoDb.csproj", "{7B7C49D3-5EE3-411D-A81C-AE834E196974}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{E5AC94DF-0E2E-4AB7-B07C-A7414BD50F29}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.MongoDb", "Repository.MongoDb\Repository.MongoDb.csproj", "{7B7C49D3-5EE3-411D-A81C-AE834E196974}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{AB47F188-DBAC-40F5-8D7F-1BB35332F54A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Jwt", "Service.Jwt\Service.Jwt.csproj", "{7B8336E6-DC86-4CDE-8B6B-83BF4546D308}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +31,14 @@ Global
 		{7B7C49D3-5EE3-411D-A81C-AE834E196974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B7C49D3-5EE3-411D-A81C-AE834E196974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B7C49D3-5EE3-411D-A81C-AE834E196974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB47F188-DBAC-40F5-8D7F-1BB35332F54A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB47F188-DBAC-40F5-8D7F-1BB35332F54A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB47F188-DBAC-40F5-8D7F-1BB35332F54A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB47F188-DBAC-40F5-8D7F-1BB35332F54A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8336E6-DC86-4CDE-8B6B-83BF4546D308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8336E6-DC86-4CDE-8B6B-83BF4546D308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8336E6-DC86-4CDE-8B6B-83BF4546D308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8336E6-DC86-4CDE-8B6B-83BF4546D308}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
