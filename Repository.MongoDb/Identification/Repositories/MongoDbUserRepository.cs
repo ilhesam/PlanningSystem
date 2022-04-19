@@ -6,7 +6,7 @@ namespace Repository.MongoDb;
 internal sealed class MongoDbUserRepository<TMongoDbContext> : MongoDbRepository<User, TMongoDbContext>, IUserRepository
     where TMongoDbContext : IMongoDbContext
 {
-    public MongoDbUserRepository(TMongoDbContext context) : base(context)
+    public MongoDbUserRepository(TMongoDbContext context, IMongoCollectionConfiguration<User> configuration) : base(context, configuration)
     {
     }
 
