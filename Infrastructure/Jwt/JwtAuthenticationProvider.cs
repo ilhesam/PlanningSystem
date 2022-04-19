@@ -1,10 +1,10 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Domain;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Service.Jwt;
+namespace Core.Authentication.Jwt;
 
 public class JwtAuthenticationProvider : IAuthenticationProvider
 {

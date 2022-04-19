@@ -1,9 +1,4 @@
-﻿using Domain;
-using MediatR;
-using Repository;
-using Service.Results;
-
-namespace Service;
+﻿namespace Core.Requests;
 
 public class GetAllTargets : IRequest<GetAllTargetsResponse>
 {

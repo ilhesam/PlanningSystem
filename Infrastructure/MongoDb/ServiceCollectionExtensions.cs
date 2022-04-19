@@ -1,9 +1,8 @@
-﻿using Domain;
+﻿using Core;
+using Core.Repository.MongoDb;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
-using Repository;
-using Repository.MongoDb;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

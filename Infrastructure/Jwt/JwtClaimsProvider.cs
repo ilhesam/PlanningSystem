@@ -1,8 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Domain;
 
-namespace Service.Jwt;
+namespace Core.Authentication.Jwt;
 
 public interface IJwtClaimsProvider
 {

@@ -1,7 +1,4 @@
-﻿using MediatR;
-using Repository;
-
-namespace Service;
+﻿namespace Core.Requests;
 
 public class LoginUser : IRequest<LoginUserResponse>
 {

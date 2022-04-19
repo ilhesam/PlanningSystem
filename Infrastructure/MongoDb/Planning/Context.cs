@@ -1,4 +1,6 @@
-﻿namespace Repository.MongoDb;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace Core.Repository.MongoDb;
 
 internal sealed class PlanningMongoDbContext : MongoDbContext
 {

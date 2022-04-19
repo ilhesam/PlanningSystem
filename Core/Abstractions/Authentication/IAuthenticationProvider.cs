@@ -1,6 +1,4 @@
-﻿using Domain;
-
-namespace Service;
+﻿namespace Core;
 
 public interface IAuthenticationProvider
 {

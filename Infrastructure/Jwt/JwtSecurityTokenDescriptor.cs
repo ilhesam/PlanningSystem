@@ -1,6 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 
-namespace Service.Jwt;
+namespace Core.Authentication.Jwt;
 
 public class JwtSecurityTokenDescriptor : SecurityTokenDescriptor
 {

@@ -1,9 +1,4 @@
-﻿using Domain;
-using MediatR;
-using Repository;
-using Service.Results;
-
-namespace Service;
+﻿namespace Core.Requests;
 
 public abstract class GetAllRequestHandler<TRequest, TResponse, TKey, TEntity> : IRequestHandler<TRequest, TResponse>
     where TRequest : IRequest<TResponse>

@@ -1,8 +1,4 @@
-﻿using Domain;
-using MediatR;
-using Repository;
-
-namespace Service;
+﻿namespace Core.Requests;
 
 public abstract class DeleteRequestHandler<TRequest, TKey, TEntity> : IRequestHandler<TRequest>
     where TRequest : IIdRequest<TKey>

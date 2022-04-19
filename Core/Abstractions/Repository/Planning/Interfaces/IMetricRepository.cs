@@ -1,6 +1,4 @@
-﻿using Domain;
-
-namespace Repository;
+﻿namespace Core;
 
 public interface IMetricRepository : IRepository<Metric>
 {

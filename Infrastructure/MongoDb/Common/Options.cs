@@ -1,4 +1,6 @@
-﻿namespace Repository.MongoDb;
+﻿using Core.Repository.MongoDb;
+
+namespace Core;
 
 public class MongoDbOptions
 {

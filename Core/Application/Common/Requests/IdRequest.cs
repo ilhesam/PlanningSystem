@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Service;
+﻿namespace Core.Requests;
 
 public interface IIdRequest<TKey> : IRequest
 {

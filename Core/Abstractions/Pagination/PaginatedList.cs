@@ -1,4 +1,4 @@
-﻿namespace Repository;
+﻿namespace Core;
 
 public interface IPaginatedList<out T> : IReadOnlyList<T>
 {

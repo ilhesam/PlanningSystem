@@ -1,8 +1,4 @@
-﻿using Domain;
-using MediatR;
-using Repository;
-
-namespace Service;
+﻿namespace Core.Requests;
 
 public abstract class CreateRequestHandler<TRequest, TKey, TEntity> : IRequestHandler<TRequest>
     where TRequest : IRequest

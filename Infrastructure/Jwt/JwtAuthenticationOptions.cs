@@ -1,4 +1,4 @@
-﻿namespace Service.Jwt;
+﻿namespace Core;
 
 public class JwtAuthenticationOptions
 {

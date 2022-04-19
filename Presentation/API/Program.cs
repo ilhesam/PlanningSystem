@@ -1,9 +1,3 @@
-using API;
-using Domain;
-using Repository.MongoDb;
-using Service;
-using Service.Jwt;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();

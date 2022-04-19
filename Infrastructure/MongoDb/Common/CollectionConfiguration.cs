@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace Repository.MongoDb;
+namespace Core.Repository.MongoDb;
 
 public interface IMongoCollectionConfiguration<TDocument>
 {

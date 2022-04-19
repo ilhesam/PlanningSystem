@@ -1,7 +1,6 @@
-﻿using Domain;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 
-namespace Repository.MongoDb;
+namespace Core.Repository.MongoDb;
 
 internal sealed class MongoDbUserRepository<TMongoDbContext> : MongoDbRepository<User, TMongoDbContext>, IUserRepository
     where TMongoDbContext : IMongoDbContext
