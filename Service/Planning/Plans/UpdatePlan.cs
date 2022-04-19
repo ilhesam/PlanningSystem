@@ -16,7 +16,7 @@ public class UpdatePlan : IIdRequest
 
 public class UpdatePlanHandler : UpdateRequestHandler<UpdatePlan, Plan>
 {
-    public UpdatePlanHandler(IPlanRepository repository) : base(repository)
+    public UpdatePlanHandler(IPlanRepository repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }

@@ -12,7 +12,7 @@ public class UpdateMetric : IIdRequest
 
 public class UpdateMetricHandler : UpdateRequestHandler<UpdateMetric, Metric>
 {
-    public UpdateMetricHandler(IMetricRepository repository) : base(repository)
+    public UpdateMetricHandler(IMetricRepository repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }

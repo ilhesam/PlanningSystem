@@ -15,7 +15,7 @@ public class CreatePlan : IRequest
 
 public class CreatePlanHandler : CreateRequestHandler<CreatePlan, Plan>
 {
-    public CreatePlanHandler(IPlanRepository repository) : base(repository)
+    public CreatePlanHandler(IPlanRepository repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }

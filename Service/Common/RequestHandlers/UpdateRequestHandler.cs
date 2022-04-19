@@ -10,16 +10,19 @@ public abstract class UpdateRequestHandler<TRequest, TKey, TEntity> : IRequestHa
     where TEntity : IEntity<TKey>
 {
     protected readonly IRepository<TKey, TEntity> Repository;
+    protected readonly IUserContext UserContext;
 
-    protected UpdateRequestHandler(IRepository<TKey, TEntity> repository)
+    protected UpdateRequestHandler(IRepository<TKey, TEntity> repository, IUserContext userContext)
     {
         Repository = repository;
+        UserContext = userContext;
     }
 
     public virtual async Task<Unit> Handle(TRequest request, CancellationToken cancellationToken)
     {
         var entity = await Repository.GetByIdAsync(request.Id, cancellationToken);
         entity = request.InjectTo(entity);
+        entity.Update(UserContext);
         await Repository.UpdateAsync(entity, cancellationToken);
         return Unit.Value;
     }
@@ -29,7 +32,7 @@ public abstract class UpdateRequestHandler<TRequest, TEntity> : UpdateRequestHan
     where TRequest : IIdRequest
     where TEntity : IEntity
 {
-    protected UpdateRequestHandler(IRepository<TEntity> repository) : base(repository)
+    protected UpdateRequestHandler(IRepository<TEntity> repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }

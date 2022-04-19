@@ -11,7 +11,7 @@ public class CreateMetric : IRequest
 
 public class CreateMetricHandler : CreateRequestHandler<CreateMetric, Metric>
 {
-    public CreateMetricHandler(IMetricRepository repository) : base(repository)
+    public CreateMetricHandler(IMetricRepository repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }

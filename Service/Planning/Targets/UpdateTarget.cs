@@ -15,7 +15,7 @@ public class UpdateTarget : IIdRequest
 
 public class UpdateTargetHandler : UpdateRequestHandler<UpdateTarget, Target>
 {
-    public UpdateTargetHandler(ITargetRepository repository) : base(repository)
+    public UpdateTargetHandler(ITargetRepository repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }

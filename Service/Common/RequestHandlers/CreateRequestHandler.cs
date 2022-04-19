@@ -10,15 +10,18 @@ public abstract class CreateRequestHandler<TRequest, TKey, TEntity> : IRequestHa
     where TEntity : IEntity<TKey>
 {
     protected readonly IRepository<TKey, TEntity> Repository;
+    protected readonly IUserContext UserContext;
 
-    protected CreateRequestHandler(IRepository<TKey, TEntity> repository)
+    protected CreateRequestHandler(IRepository<TKey, TEntity> repository, IUserContext userContext)
     {
         Repository = repository;
+        UserContext = userContext;
     }
 
     public virtual async Task<Unit> Handle(TRequest request, CancellationToken cancellationToken)
     {
         var entity = request.MapTo<TRequest, TEntity>();
+        entity.Create(UserContext);
         await Repository.CreateAsync(entity, cancellationToken);
         return Unit.Value;
     }
@@ -28,7 +31,7 @@ public abstract class CreateRequestHandler<TRequest, TEntity> : CreateRequestHan
     where TRequest : IRequest
     where TEntity : IEntity
 {
-    protected CreateRequestHandler(IRepository<TEntity> repository) : base(repository)
+    protected CreateRequestHandler(IRepository<TEntity> repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }
