@@ -1,8 +1,7 @@
-﻿using Domain;
-using MongoDB.Bson.Serialization;
+﻿using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 
-namespace Repository.MongoDb;
+namespace Core.Repository.MongoDb;
 
 public class UserContextBsonSerializer<TUserContext> : SerializerBase<IUserContext>
     where TUserContext : IUserContext

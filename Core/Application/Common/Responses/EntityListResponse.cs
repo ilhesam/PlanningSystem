@@ -1,6 +1,4 @@
-﻿using Domain;
-
-namespace Service.Results;
+﻿namespace Core.Requests;
 
 public interface IEntityListResponse<TKey, TEntity>
     where TKey : IEquatable<TKey>

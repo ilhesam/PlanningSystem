@@ -1,4 +1,4 @@
-﻿namespace Repository.MongoDb;
+﻿namespace Core.Repository.MongoDb;
 
 internal sealed class IdentificationMongoDbContext : MongoDbContext
 {

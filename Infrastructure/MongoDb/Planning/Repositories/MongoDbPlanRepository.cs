@@ -1,6 +1,4 @@
-﻿using Domain;
-
-namespace Repository.MongoDb;
+﻿namespace Core.Repository.MongoDb;
 
 internal sealed class MongoDbPlanRepository<TContext> : MongoDbRepository<Plan, TContext>, IPlanRepository
     where TContext : IMongoDbContext

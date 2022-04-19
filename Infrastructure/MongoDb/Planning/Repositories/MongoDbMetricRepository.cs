@@ -1,6 +1,4 @@
-﻿using Domain;
-
-namespace Repository.MongoDb;
+﻿namespace Core.Repository.MongoDb;
 
 internal sealed class MongoDbMetricRepository<TContext> : MongoDbRepository<Metric, TContext>, IMetricRepository
     where TContext : IMongoDbContext

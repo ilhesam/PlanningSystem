@@ -1,8 +1,7 @@
 ﻿using System.Reflection;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Service;
+namespace Core;
 
 public static class ServiceCollectionExtensions
 {

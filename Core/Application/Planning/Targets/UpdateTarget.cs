@@ -1,7 +1,4 @@
-﻿using Domain;
-using Repository;
-
-namespace Service;
+﻿namespace Core.Requests;
 
 public class UpdateTarget : IIdRequest
 {

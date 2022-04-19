@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Service;
+namespace Core;
 
 public static class MappingExtensions
 {

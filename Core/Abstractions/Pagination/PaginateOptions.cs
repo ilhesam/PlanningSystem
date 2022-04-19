@@ -1,4 +1,4 @@
-﻿namespace Repository;
+﻿namespace Core;
 
 public class PaginateOptions
 {
