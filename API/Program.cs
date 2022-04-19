@@ -1,8 +1,13 @@
+using API;
+using Domain;
 using Repository.MongoDb;
 using Service;
 using Service.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUserContext, UserContext>();
 
 builder.Services.AddMongoDbIdentification(builder.Configuration.GetSection("Identification:MongoDB").Get<MongoDbOptions>());
 builder.Services.AddMongoDbPlanning(builder.Configuration.GetSection("Planning:MongoDB").Get<MongoDbOptions>());

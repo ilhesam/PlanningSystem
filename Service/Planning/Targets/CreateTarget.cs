@@ -12,7 +12,7 @@ public class CreateTarget : IRequest
 
 public class CreateTargetHandler : CreateRequestHandler<CreateTarget, Target>
 {
-    public CreateTargetHandler(ITargetRepository repository) : base(repository)
+    public CreateTargetHandler(ITargetRepository repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }

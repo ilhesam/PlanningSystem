@@ -12,7 +12,7 @@ public class RegisterUser : IRequest
 
 public class RegisterUserHandler : CreateRequestHandler<RegisterUser, User>
 {
-    public RegisterUserHandler(IUserRepository repository) : base(repository)
+    public RegisterUserHandler(IUserRepository repository, IUserContext userContext) : base(repository, userContext)
     {
     }
 }
