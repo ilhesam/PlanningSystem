@@ -9,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserContext, UserContext>();
 
+builder.Services.AddDefaultBsonSerializers();
+builder.Services.AddUserContextBsonSerializer<UserContext>();
+
 builder.Services.AddMongoDbIdentification(builder.Configuration.GetSection("Identification:MongoDB").Get<MongoDbOptions>());
 builder.Services.AddMongoDbPlanning(builder.Configuration.GetSection("Planning:MongoDB").Get<MongoDbOptions>());
 

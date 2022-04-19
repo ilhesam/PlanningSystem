@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Common\BsonSerializers\" />
     <Folder Include="Identification\Configs\" />
     <Folder Include="Planning\Configs\" />
     <Folder Include="Planning\Repositories\" />
