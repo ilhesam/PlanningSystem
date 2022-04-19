@@ -11,15 +11,15 @@
     <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Repository\Repository.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
+	<ItemGroup>
     <Folder Include="Common\BsonSerializers\" />
     <Folder Include="Identification\Configs\" />
     <Folder Include="Planning\Configs\" />
     <Folder Include="Planning\Repositories\" />
   </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Core\Abstractions\Abstractions.csproj" />
+	</ItemGroup>
 
 </Project>

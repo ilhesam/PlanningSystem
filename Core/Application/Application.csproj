@@ -14,12 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <Folder Include="Planning\Targets\" />
+    <Folder Include="Planning\Plans\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Planning\Targets\" />
-    <Folder Include="Planning\Plans\" />
+    <ProjectReference Include="..\Abstractions\Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

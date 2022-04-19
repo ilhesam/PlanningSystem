@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Repository.MongoDb\Repository.MongoDb.csproj" />
-    <ProjectReference Include="..\Service.Jwt\Service.Jwt.csproj" />
-    <ProjectReference Include="..\Service\Service.csproj" />
+    <ProjectReference Include="..\..\Core\Application\Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Jwt\Jwt.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\MongoDb\MongoDb.csproj" />
   </ItemGroup>
 
 </Project>
