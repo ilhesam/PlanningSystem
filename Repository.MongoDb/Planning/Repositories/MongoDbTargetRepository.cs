@@ -5,7 +5,7 @@ namespace Repository.MongoDb;
 internal sealed class MongoDbTargetRepository<TContext> : MongoDbRepository<Target, TContext>, ITargetRepository
     where TContext : IMongoDbContext
 {
-    public MongoDbTargetRepository(TContext context) : base(context)
+    public MongoDbTargetRepository(TContext context, IMongoCollectionConfiguration<Target> configuration) : base(context, configuration)
     {
     }
 }

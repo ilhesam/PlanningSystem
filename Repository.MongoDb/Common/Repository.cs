@@ -11,10 +11,11 @@ internal abstract class MongoDbRepository<TKey, TEntity, TMongoDbContext> : IRep
     protected readonly IMongoCollection<TEntity> Collection;
     protected readonly TMongoDbContext Context;
 
-    protected MongoDbRepository(TMongoDbContext context)
+    protected MongoDbRepository(TMongoDbContext context, IMongoCollectionConfiguration<TEntity> configuration)
     {
         Context = context;
         Collection = context.Database.GetCollection<TEntity>(GetCollectionName());
+        configuration.Configure(Collection);
     }
 
     protected static string GetCollectionName() => typeof(TEntity).Name;
@@ -91,7 +92,7 @@ internal abstract class MongoDbRepository<TEntity, TMongoDbContext> : MongoDbRep
     where TEntity : IEntity
     where TMongoDbContext : IMongoDbContext
 {
-    protected MongoDbRepository(TMongoDbContext context) : base(context)
+    protected MongoDbRepository(TMongoDbContext context, IMongoCollectionConfiguration<TEntity> configuration) : base(context, configuration)
     {
     }
 }

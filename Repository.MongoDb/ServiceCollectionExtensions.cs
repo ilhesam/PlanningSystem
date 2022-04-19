@@ -1,4 +1,5 @@
-﻿using Repository;
+﻿using Domain;
+using Repository;
 using Repository.MongoDb;
 
 namespace Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,8 @@ public static class ServiceCollectionExtensions
 
         services.AddSingleton<IdentificationMongoDbContext>();
 
+        services.AddSingleton<IMongoCollectionConfiguration<User>, UserConfiguration>();
+
         services.AddScoped<IUserRepository, MongoDbUserRepository<IdentificationMongoDbContext>>();
 
         return services;
@@ -27,6 +30,10 @@ public static class ServiceCollectionExtensions
         });
 
         services.AddSingleton<PlanningMongoDbContext>();
+
+        services.AddSingleton<IMongoCollectionConfiguration<Plan>, PlanConfiguration>();
+        services.AddSingleton<IMongoCollectionConfiguration<Target>, TargetConfiguration>();
+        services.AddSingleton<IMongoCollectionConfiguration<Metric>, MetricConfiguration>();
 
         services.AddScoped<IPlanRepository, MongoDbPlanRepository<PlanningMongoDbContext>>();
         services.AddScoped<ITargetRepository, MongoDbTargetRepository<PlanningMongoDbContext>>();

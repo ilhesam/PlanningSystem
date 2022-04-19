@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Identification\Configs\" />
+    <Folder Include="Planning\Configs\" />
     <Folder Include="Planning\Repositories\" />
   </ItemGroup>
 
