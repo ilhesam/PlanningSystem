@@ -19,7 +19,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
 {
-    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Planning System API", Version = "v1" });
+    option.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Planning System API",
+        Version = "v1",
+        Description = "<hr>Hello, This is Documentation of Planning System API V1" +
+                      "<hr>DateTime Format: yyyy-MM-ddTHH:mm:ss"
+    });
 
     option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
