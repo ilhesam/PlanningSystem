@@ -5,6 +5,7 @@ namespace API;
 
 [Route("API/[area]/[controller]/[action]")]
 [ApiController]
+[TypeFilter(typeof(ResultFilter))]
 public abstract class ApiController : ControllerBase
 {
     private IMediator _mediator;
