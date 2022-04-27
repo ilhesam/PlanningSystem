@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstractions", "Core\Abstra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B277172D-B10C-4D16-AB8E-B0842F404AB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCrypt", "Infrastructure\BCrypt\BCrypt.csproj", "{47F62894-2329-4950-9D2C-9DA07A4DFAFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{EBAEE22D-65B3-4945-8C17-E7647F58FE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBAEE22D-65B3-4945-8C17-E7647F58FE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBAEE22D-65B3-4945-8C17-E7647F58FE70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F62894-2329-4950-9D2C-9DA07A4DFAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F62894-2329-4950-9D2C-9DA07A4DFAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F62894-2329-4950-9D2C-9DA07A4DFAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F62894-2329-4950-9D2C-9DA07A4DFAFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{7B8336E6-DC86-4CDE-8B6B-83BF4546D308} = {FA6CDC90-F2F5-455E-B9C8-59BF1C78CDC6}
 		{F334F1A8-9DD7-4F9B-8EE6-5E44A6FFEBDB} = {B277172D-B10C-4D16-AB8E-B0842F404AB7}
 		{EBAEE22D-65B3-4945-8C17-E7647F58FE70} = {7AE8D83A-F2F6-4204-A1FF-FA4338B7A52C}
+		{47F62894-2329-4950-9D2C-9DA07A4DFAFA} = {FA6CDC90-F2F5-455E-B9C8-59BF1C78CDC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {186E71FB-DB45-4B17-8121-B7073D7CC105}

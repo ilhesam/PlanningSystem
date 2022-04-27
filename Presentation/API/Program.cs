@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserContext, UserContext>();
 
+builder.Services.AddBCryptPasswordHasher();
+
 builder.Services.AddDefaultBsonSerializers();
 builder.Services.AddUserContextBsonSerializer<UserContext>();
 
