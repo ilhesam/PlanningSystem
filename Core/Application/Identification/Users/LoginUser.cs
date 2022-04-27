@@ -21,12 +21,14 @@ public class LoginUserHandler : IRequestHandler<LoginUser, LoginUserResponse>
     protected readonly IUserRepository Repository;
     protected readonly IAuthenticationProvider AuthenticationProvider;
     protected readonly IPasswordHasher PasswordHasher;
+    protected readonly IMappingProvider Mapper;
 
-    public LoginUserHandler(IUserRepository repository, IAuthenticationProvider authenticationProvider, IPasswordHasher passwordHasher)
+    public LoginUserHandler(IUserRepository repository, IAuthenticationProvider authenticationProvider, IPasswordHasher passwordHasher, IMappingProvider mapper)
     {
         Repository = repository;
         AuthenticationProvider = authenticationProvider;
         PasswordHasher = passwordHasher;
+        Mapper = mapper;
     }
 
     public async Task<LoginUserResponse> Handle(LoginUser request, CancellationToken cancellationToken)
@@ -38,6 +40,6 @@ public class LoginUserHandler : IRequestHandler<LoginUser, LoginUserResponse>
         if (!passwordResult.Verified) throw new UserNotFoundException();
 
         var credential = AuthenticationProvider.IssueCredential(user);
-        return credential.MapTo<AuthenticationCredential, LoginUserResponse>();
+        return Mapper.To<AuthenticationCredential, LoginUserResponse>(credential);
     }
 }

@@ -9,7 +9,7 @@ public class UpdateMetric : IIdRequest
 
 public class UpdateMetricHandler : UpdateRequestHandler<UpdateMetric, Metric>
 {
-    public UpdateMetricHandler(IMetricRepository repository, IUserContext userContext) : base(repository, userContext)
+    public UpdateMetricHandler(IMetricRepository repository, IUserContext userContext, IMappingProvider mapper) : base(repository, userContext, mapper)
     {
     }
 }

@@ -10,7 +10,7 @@ public class RegisterUserHandler : CreateRequestHandler<RegisterUser, IdResponse
 {
     protected readonly IPasswordHasher PasswordHasher;
 
-    public RegisterUserHandler(IUserRepository repository, IUserContext userContext, IPasswordHasher passwordHasher) : base(repository, userContext)
+    public RegisterUserHandler(IUserRepository repository, IUserContext userContext, IPasswordHasher passwordHasher, IMappingProvider mapper) : base(repository, userContext, mapper)
     {
         PasswordHasher = passwordHasher;
     }

@@ -11,7 +11,7 @@ public class CreatePlan : IRequest<IdResponse>
 
 public class CreatePlanHandler : CreateRequestHandler<CreatePlan, IdResponse, Plan>
 {
-    public CreatePlanHandler(IPlanRepository repository, IUserContext userContext) : base(repository, userContext)
+    public CreatePlanHandler(IPlanRepository repository, IUserContext userContext, IMappingProvider mapper) : base(repository, userContext, mapper)
     {
     }
 }

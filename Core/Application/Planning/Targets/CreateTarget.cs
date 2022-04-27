@@ -14,7 +14,7 @@ public class CreateTarget : IRequest<IdResponse>
 
 public class CreateTargetHandler : CreateRequestHandler<CreateTarget, IdResponse, Target>
 {
-    public CreateTargetHandler(ITargetRepository repository, IUserContext userContext) : base(repository, userContext)
+    public CreateTargetHandler(ITargetRepository repository, IUserContext userContext, IMappingProvider mapper) : base(repository, userContext, mapper)
     {
     }
 }

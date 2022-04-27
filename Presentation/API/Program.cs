@@ -13,6 +13,8 @@ builder.Services.AddPlanning(builder.Configuration);
 builder.Services.AddJwtProvider(builder.Configuration);
 builder.Services.AddAuthentication(builder.Configuration);
 
+builder.Services.AddAutoMapper();
+
 builder.Services.AddRequiredServices();
 
 builder.Services.AddControllers();
