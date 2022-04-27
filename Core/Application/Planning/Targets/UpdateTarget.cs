@@ -7,6 +7,7 @@ public class UpdateTarget : IIdRequest
     public string Title { get; set; }
     public string Description { get; set; }
 
+    public double Goal { get; set; }
     public double Progress { get; set; }
 }
 
