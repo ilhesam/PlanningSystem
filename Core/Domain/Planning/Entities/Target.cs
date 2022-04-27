@@ -1,14 +1,13 @@
 ﻿namespace Core;
 
-public class Target : Entity, IHasOwner
+public class Target : Entity
 {
     public string Title { get; set; }
     public string Description { get; set; }
 
-    public virtual object PlanId { get; set; }
-    public virtual object MetricId { get; set; }
+    public Guid SublimeTarget { get; set; }
+    public Guid Metric { get; set; }
 
+    public double Goal { get; set; }
     public double Progress { get; set; }
-
-    public string OwnerUserName { get; set; }
 }
