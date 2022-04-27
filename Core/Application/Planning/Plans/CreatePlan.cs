@@ -1,6 +1,6 @@
 ﻿namespace Core.Requests;
 
-public class CreatePlan : IRequest
+public class CreatePlan : IRequest<IdResponse>
 {
     public string Title { get; set; }
     public string Description { get; set; }
@@ -9,7 +9,7 @@ public class CreatePlan : IRequest
     public DateTime End { get; set; }
 }
 
-public class CreatePlanHandler : CreateRequestHandler<CreatePlan, Plan>
+public class CreatePlanHandler : CreateRequestHandler<CreatePlan, IdResponse, Plan>
 {
     public CreatePlanHandler(IPlanRepository repository, IUserContext userContext) : base(repository, userContext)
     {

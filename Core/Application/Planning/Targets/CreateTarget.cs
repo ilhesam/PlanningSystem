@@ -1,6 +1,6 @@
 ﻿namespace Core.Requests;
 
-public class CreateTarget : IRequest
+public class CreateTarget : IRequest<IdResponse>
 {
     public string Title { get; set; }
     public string Description { get; set; }
@@ -12,7 +12,7 @@ public class CreateTarget : IRequest
     public double Goal { get; set; }
 }
 
-public class CreateTargetHandler : CreateRequestHandler<CreateTarget, Target>
+public class CreateTargetHandler : CreateRequestHandler<CreateTarget, IdResponse, Target>
 {
     public CreateTargetHandler(ITargetRepository repository, IUserContext userContext) : base(repository, userContext)
     {
