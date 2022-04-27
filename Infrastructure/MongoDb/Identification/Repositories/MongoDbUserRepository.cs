@@ -17,6 +17,6 @@ internal sealed class MongoDbUserRepository<TMongoDbContext> : MongoDbRepository
 
         var filter = UserNameFilter(userName);
 
-        return await Collection.Find(filter).SingleAsync(cancellationToken);
+        return await Collection.Find(filter).SingleOrDefaultAsync(cancellationToken);
     }
 }

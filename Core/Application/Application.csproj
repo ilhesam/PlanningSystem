@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Identification\Exceptions\" />
     <Folder Include="Planning\Targets\" />
     <Folder Include="Planning\Plans\" />
   </ItemGroup>
