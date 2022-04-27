@@ -17,8 +17,12 @@ public abstract class CreateRequestHandler<TRequest, TKey, TEntity> : IRequestHa
     public virtual async Task<Unit> Handle(TRequest request, CancellationToken cancellationToken)
     {
         var entity = request.MapTo<TRequest, TEntity>();
+
         entity.Create(UserContext);
+        if (entity is IHasOwner hasOwnerEntity) hasOwnerEntity.OwnerUserName = UserContext.UserName;
+
         await Repository.CreateAsync(entity, cancellationToken);
+
         return Unit.Value;
     }
 }
