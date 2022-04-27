@@ -8,7 +8,5 @@ public class Plan : Entity, IHasOwner
     public DateTime Start { get; set; }
     public DateTime End { get; set; }
 
-    public IEnumerable<Guid> Targets { get; set; }
-
     public string OwnerUserName { get; set; }
 }
