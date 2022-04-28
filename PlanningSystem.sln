@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCrypt", "Infrastructure\BCrypt\BCrypt.csproj", "{47F62894-2329-4950-9D2C-9DA07A4DFAFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMap", "Infrastructure\AutoMapper\AutoMap.csproj", "{32BEDF51-C35E-4ACB-8B3F-CB1E21960116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoMap", "Infrastructure\AutoMapper\AutoMap.csproj", "{32BEDF51-C35E-4ACB-8B3F-CB1E21960116}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPages", "Presentation\RazorPages\RazorPages.csproj", "{0A442297-3B13-415E-8F81-B7398D7CFE27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{32BEDF51-C35E-4ACB-8B3F-CB1E21960116}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32BEDF51-C35E-4ACB-8B3F-CB1E21960116}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32BEDF51-C35E-4ACB-8B3F-CB1E21960116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A442297-3B13-415E-8F81-B7398D7CFE27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A442297-3B13-415E-8F81-B7398D7CFE27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A442297-3B13-415E-8F81-B7398D7CFE27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A442297-3B13-415E-8F81-B7398D7CFE27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{EBAEE22D-65B3-4945-8C17-E7647F58FE70} = {7AE8D83A-F2F6-4204-A1FF-FA4338B7A52C}
 		{47F62894-2329-4950-9D2C-9DA07A4DFAFA} = {FA6CDC90-F2F5-455E-B9C8-59BF1C78CDC6}
 		{32BEDF51-C35E-4ACB-8B3F-CB1E21960116} = {FA6CDC90-F2F5-455E-B9C8-59BF1C78CDC6}
+		{0A442297-3B13-415E-8F81-B7398D7CFE27} = {B277172D-B10C-4D16-AB8E-B0842F404AB7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {186E71FB-DB45-4B17-8121-B7073D7CC105}
