@@ -1,15 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorPages.Pages.Accounts
+namespace RazorPages.Pages.Accounts;
+
+public class LoginModel : BasePageModel
 {
-    public class LoginModel : PageModel
-    {
-        [BindProperty] public string UserName { get; set; }
-        [BindProperty] public string Password { get; set; }
+    [BindProperty] public LoginUser Req { get; set; }
 
-        public void OnGet()
-        {
-        }
+    public IActionResult OnGet()
+    {
+        if (User.Identity?.IsAuthenticated is true) return RedirectToPage("/Index");
+        return Page();
+    }
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+        var response = await Mediator.Send(Req);
+        HttpContext.SignIn(response.AccessToken);
+        return RedirectToPage("/Index");
     }
 }

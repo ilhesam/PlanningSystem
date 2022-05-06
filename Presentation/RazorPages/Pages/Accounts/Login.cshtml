@@ -26,17 +26,17 @@
 
 <div class="text-center">
     <main class="form-signin">
-        <form>
+        <form method="post">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating">
-                <input type="text" class="form-control" placeholder="Please enter your user name">
-                <label asp-for="@Model.UserName">Username</label>
+                <input asp-for="@Model.Req.UserName" type="text" class="form-control" placeholder="Please enter your user name">
+                <label>Username</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" placeholder="Please enter your password">
-                <label asp-for="@Model.Password">Password</label>
+                <input asp-for="@Model.Req.Password" type="password" class="form-control" placeholder="Please enter your password">
+                <label>Password</label>
             </div>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
