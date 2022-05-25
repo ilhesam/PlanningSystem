@@ -10,9 +10,4 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Cryptography\" />
-    <Folder Include="Mapping\" />
-  </ItemGroup>
-
 </Project>
