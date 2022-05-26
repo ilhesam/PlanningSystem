@@ -2,9 +2,9 @@
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-public static class CommonExtensions
+public static class InfrastructureExtensions
 {
-    public static IServiceCollection AddCommon<TPasswordHasher, TMappingProvider, TPaginator>(this IServiceCollection services)
+    public static IServiceCollection AddInfrastructure<TPasswordHasher, TMappingProvider, TPaginator>(this IServiceCollection services)
         where TPasswordHasher : class, IPasswordHasher
         where TMappingProvider : class, IMappingProvider
         where TPaginator : class, IPaginator

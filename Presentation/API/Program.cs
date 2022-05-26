@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddUserContext();
 
-builder.Services.AddCommon<BCryptPasswordHasher, AutoMapperProvider, MongoDbPaginator>();
+builder.Services.AddInfrastructure<BCryptPasswordHasher, AutoMapperProvider, MongoDbPaginator>();
 
 builder.Services.AddBsonSerializers();
 
