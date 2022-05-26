@@ -4,17 +4,19 @@ namespace AutoMapper;
 
 public class AutoMapperProvider : IMappingProvider
 {
-    public TDestination To<TSource, TDestination>(TSource source)
+    public IMappingResponse<TSource, TDestination> To<TSource, TDestination>(IMappingRequest<TSource> request)
     {
         var config = new MapperConfiguration(_ => _.CreateMap<TSource, TDestination>());
         var mapper = config.CreateMapper();
-        return mapper.Map<TDestination>(source);
+        var dest = mapper.Map<TDestination>(request.Source);
+        return new BaseMappingResponse<TSource, TDestination>(request.Source, dest);
     }
 
-    public TDestination To<TSource, TDestination>(TSource source, TDestination destination)
+    public IMappingResponse<TSource, TDestination> To<TSource, TDestination>(IMappingRequest<TSource, TDestination> request)
     {
         var config = new MapperConfiguration(_ => _.CreateMap<TSource, TDestination>());
         var mapper = config.CreateMapper();
-        return mapper.Map(source, destination);
+        var dest = mapper.Map(request.Source, request.Destination);
+        return new BaseMappingResponse<TSource, TDestination>(request.Source, dest);
     }
 }

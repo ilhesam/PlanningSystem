@@ -6,14 +6,18 @@ public class BCryptPasswordHasher : IPasswordHasher
 {
     private readonly int workFactor = 12;
 
-    public string Hash(string password) => Net.BCrypt.HashPassword(password, workFactor);
-
-    public PasswordVerificationResult Verify(string providedPassword, string hashedPassword)
+    public IPasswordHashingResponse Hash(IPasswordHashingRequest request)
     {
-        return new PasswordVerificationResult
+        var hash = Net.BCrypt.HashPassword(request.Password, workFactor);
+        return new BasePasswordHashingResponse(request.Password, hash);
+    }
+
+    public IPasswordVerificationResponse Verify(IPasswordVerificationRequest request)
+    {
+        return new BasePasswordVerificationResponse
         {
-            Verified = Net.BCrypt.Verify(providedPassword, hashedPassword),
-            RehashNeeded = Net.BCrypt.PasswordNeedsRehash(hashedPassword, workFactor)
+            Verified = Net.BCrypt.Verify(request.ProvidedPassword, request.HashedPassword),
+            RehashNeeded = Net.BCrypt.PasswordNeedsRehash(request.HashedPassword, workFactor)
         };
     }
 }

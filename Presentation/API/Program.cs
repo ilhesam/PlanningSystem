@@ -1,9 +1,13 @@
+using AutoMapper;
+using BCrypt;
+using Core.Repository.MongoDb;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddUserContext();
 
-builder.Services.AddBCryptPasswordHasher();
+builder.Services.AddCommon<BCryptPasswordHasher, AutoMapperProvider, MongoDbPaginator>();
 
 builder.Services.AddBsonSerializers();
 
@@ -12,10 +16,6 @@ builder.Services.AddPlanning(builder.Configuration);
 
 builder.Services.AddJwtProvider(builder.Configuration);
 builder.Services.AddAuthentication(builder.Configuration);
-
-builder.Services.AddAutoMapper();
-
-builder.Services.AddRequiredServices();
 
 builder.Services.AddControllers();
 builder.Services.AddSwagger();

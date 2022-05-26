@@ -21,69 +21,46 @@ internal abstract class MongoDbRepository<TKey, TEntity, TMongoDbContext> : IRep
 
     protected static FilterDefinition<TEntity> IdFilter(TKey id) => Builders<TEntity>.Filter.Eq(e => e.Id, id);
 
-    public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
+    public async Task<IListResponse<TEntity>> GetAllAsync(IRequest request)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
         var filter = Builders<TEntity>.Filter.Empty;
-
-        return await Collection.Find(filter).ToListAsync(cancellationToken);
+        var data = await Collection.Find(filter).ToListAsync(request.CancellationToken);
+        return new BaseListResponse<TEntity>(data);
     }
 
-    public virtual async Task<IPaginatedList<TEntity>> GetPaginatedAsync(PaginateOptions options, CancellationToken cancellationToken = default)
+    public async Task<IListResponse<TEntity>> GetPaginatedAsync(IPaginationRequest request)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
         var filter = Builders<TEntity>.Filter.Empty;
         var findFluent = Collection.Find(filter);
-
-        var totalItems = await findFluent.CountDocumentsAsync(cancellationToken);
-        var totalPages = (totalItems + options.Size - 1) / options.Size;
-
-        var list = await findFluent
-            .Skip((options.Number - 1) * options.Size)
-            .Limit(options.Size)
-            .ToListAsync(cancellationToken);
-
-        return PaginatedList<TEntity>.Create(totalItems, totalPages, list);
+        var mongoRequest = new MongoDbPaginationRequest<TEntity>(findFluent, request.Paginator, request.Number, request.Size);
+        return await request.Paginator.PaginateAsync<TEntity>(mongoRequest);
     }
 
-    public virtual async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
+    public async Task<IResponse<TEntity>> GetByIdAsync(IRequest<TKey> request)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        var filter = IdFilter(id);
-
-        return await Collection.Find(filter).SingleAsync(cancellationToken);
+        var filter = IdFilter(request.Data);
+        var data = await Collection.Find(filter).SingleAsync(request.CancellationToken);
+        return new BaseResponse<TEntity>(data);
     }
 
-    public virtual async Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
+    public async Task<IResponse<TKey>> CreateAsync(IRequest<TEntity> request)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        await Collection.InsertOneAsync(entity, new InsertOneOptions(), cancellationToken);
-
-        return entity.Id;
+        await Collection.InsertOneAsync(request.Data, new InsertOneOptions(), request.CancellationToken);
+        return new BaseResponse<TKey>(request.Data.Id);
     }
 
-    public virtual async Task<TKey> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
+    public async Task<IResponse<TKey>> UpdateAsync(IRequest<TEntity> request)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        var filter = IdFilter(entity.Id);
-        entity = await Collection.FindOneAndReplaceAsync(filter, entity, null, cancellationToken);
-
-        return entity.Id;
+        var filter = IdFilter(request.Data.Id);
+        await Collection.FindOneAndReplaceAsync(filter, request.Data, null, request.CancellationToken);
+        return new BaseResponse<TKey>(request.Data.Id);
     }
 
-    public virtual async Task<TKey> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
+    public async Task<IResponse<TKey>> DeleteAsync(IRequest<TEntity> request)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        var filter = IdFilter(entity.Id);
-        entity = await Collection.FindOneAndDeleteAsync(filter, null, cancellationToken);
-
-        return entity.Id;
+        var filter = IdFilter(request.Data.Id);
+        await Collection.FindOneAndDeleteAsync(filter, null, request.CancellationToken);
+        return new BaseResponse<TKey>(request.Data.Id);
     }
 }
 

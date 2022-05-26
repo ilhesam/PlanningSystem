@@ -69,38 +69,38 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection AddJwtProvider(this IServiceCollection services, IConfiguration config)
     {
-        services.AddJwtProvider(config.GetSection("Jwt").Get<JwtAuthenticationOptions>());
+        // services.AddJwtProvider(config.GetSection("Jwt").Get<JwtAuthenticationOptions>());
         return services;
     }
 
     public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration config)
     {
-        var options = config.GetSection("Jwt").Get<JwtAuthenticationOptions>();
-
-        services.AddAuthentication(configureOptions =>
-            {
-                configureOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                configureOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                configureOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(jwt =>
-            {
-                var key = Encoding.ASCII.GetBytes(options.Secret);
-                jwt.SaveToken = true;
-                jwt.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    RequireExpirationTime = true,
-                    ValidateLifetime = true,
-                    SaveSigninToken = true,
-                    ValidAudience = options.Audience,
-                    ValidIssuer = options.Issuer
-                };
-            });
-
+        // var options = config.GetSection("Jwt").Get<JwtAuthenticationOptions>();
+        //
+        // services.AddAuthentication(configureOptions =>
+        //     {
+        //         configureOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        //         configureOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        //         configureOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        //     })
+        //     .AddJwtBearer(jwt =>
+        //     {
+        //         var key = Encoding.ASCII.GetBytes(options.Secret);
+        //         jwt.SaveToken = true;
+        //         jwt.TokenValidationParameters = new TokenValidationParameters
+        //         {
+        //             ValidateIssuerSigningKey = true,
+        //             IssuerSigningKey = new SymmetricSecurityKey(key),
+        //             ValidateIssuer = true,
+        //             ValidateAudience = true,
+        //             RequireExpirationTime = true,
+        //             ValidateLifetime = true,
+        //             SaveSigninToken = true,
+        //             ValidAudience = options.Audience,
+        //             ValidIssuer = options.Issuer
+        //         };
+        //     });
+        //
         return services;
     }
 

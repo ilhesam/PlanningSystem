@@ -16,19 +16,19 @@ public interface IResponse
     Exception Exception { get; }
 }
 
-public abstract class BaseResponse : IResponse
+public class BaseResponse : IResponse
 {
-    protected BaseResponse()
+    public BaseResponse()
     {
     }
 
-    protected BaseResponse(Exception handledException)
+    public BaseResponse(Exception handledException)
     {
         HandledException = true;
         Exception = handledException;
     }
 
-    protected BaseResponse(DateTime startTime, DateTime finishTime)
+    public BaseResponse(DateTime startTime, DateTime finishTime)
     {
         TimingEnabled = true;
         StartTime = startTime;
@@ -36,7 +36,7 @@ public abstract class BaseResponse : IResponse
         DurationMilliseconds = (finishTime - startTime).TotalMilliseconds;
     }
 
-    protected BaseResponse(DateTime startTime, DateTime finishTime, Exception handledException)
+    public BaseResponse(DateTime startTime, DateTime finishTime, Exception handledException)
         : this(startTime, finishTime)
     {
         HandledException = true;
@@ -52,26 +52,26 @@ public abstract class BaseResponse : IResponse
     public Exception Exception { get; } = null;
 }
 
-public abstract class BaseResponse<TData> : BaseResponse, IResponse<TData>
+public class BaseResponse<TData> : BaseResponse, IResponse<TData>
 {
-    protected BaseResponse(TData data) : base()
+    public BaseResponse(TData data) : base()
     {
         Data = data;
     }
 
-    protected BaseResponse(TData data, Exception handledException)
+    public BaseResponse(TData data, Exception handledException)
         : base(handledException)
     {
         Data = data;
     }
 
-    protected BaseResponse(TData data, DateTime startTime, DateTime finishTime)
+    public BaseResponse(TData data, DateTime startTime, DateTime finishTime)
         : base(startTime, finishTime)
     {
         Data = data;
     }
 
-    protected BaseResponse(TData data, DateTime startTime, DateTime finishTime, Exception handledException)
+    public BaseResponse(TData data, DateTime startTime, DateTime finishTime, Exception handledException)
         : base(startTime, finishTime, handledException)
     {
         Data = data;
@@ -80,8 +80,30 @@ public abstract class BaseResponse<TData> : BaseResponse, IResponse<TData>
     public TData Data { get; } = default;
 }
 
-public interface IListResponse<out T> : IResponse<IReadOnlyList<T>>
+public interface IListResponse<out T> : IResponse<IEnumerable<T>>
 {
     long TotalItems { get; }
     long TotalPages { get; }
+}
+
+public class BaseListResponse<T> : BaseResponse<IEnumerable<T>>, IListResponse<T>
+{
+    public BaseListResponse(IEnumerable<T> data) : base(data)
+    {
+    }
+
+    public BaseListResponse(IEnumerable<T> data, Exception handledException) : base(data, handledException)
+    {
+    }
+
+    public BaseListResponse(IEnumerable<T> data, DateTime startTime, DateTime finishTime) : base(data, startTime, finishTime)
+    {
+    }
+
+    public BaseListResponse(IEnumerable<T> data, DateTime startTime, DateTime finishTime, Exception handledException) : base(data, startTime, finishTime, handledException)
+    {
+    }
+
+    public long TotalItems { get; set; }
+    public long TotalPages { get; set; }
 }

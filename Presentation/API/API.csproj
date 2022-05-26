@@ -16,7 +16,6 @@
     <ProjectReference Include="..\..\Core\Application\Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\AutoMapper\AutoMap.csproj" />
     <ProjectReference Include="..\..\Infrastructure\BCrypt\BCrypt.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Jwt\Jwt.csproj" />
     <ProjectReference Include="..\..\Infrastructure\MongoDb\MongoDb.csproj" />
   </ItemGroup>
 

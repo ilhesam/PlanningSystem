@@ -10,9 +10,9 @@ public interface IRequest<TData> : IRequest
     TData Data { get; set; }
 }
 
-public abstract class BaseRequest : IRequest
+public class BaseRequest : IRequest
 {
-    protected BaseRequest(CancellationToken cancellationToken = default)
+    public BaseRequest(CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
@@ -22,9 +22,9 @@ public abstract class BaseRequest : IRequest
     public CancellationToken CancellationToken { get; }
 }
 
-public abstract class BaseRequest<TData> : BaseRequest, IRequest<TData>
+public class BaseRequest<TData> : BaseRequest, IRequest<TData>
 {
-    protected BaseRequest(TData data, CancellationToken cancellationToken = default)
+    public BaseRequest(TData data, CancellationToken cancellationToken = default)
         : base(cancellationToken)
     {
         Data = data;
